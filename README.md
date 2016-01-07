@@ -1,17 +1,17 @@
-# FrameApp
+﻿# FrameApp
 App开发框架
 
 1、网络访问框架
-     HttpWork类封装了okhttp的，get和post操作的方法，可以说他是实际上的网络操作类，而BaseWebFrg只是个代理类，
-有涉及网络请求的fragment只需要继承BaseWebFrg，实现其中的抽象方法，以便于回调即可。这样在请求时一句代码
-便可搞定。 httptool.doPost(),或者httptool.doGet().或者其他请求。
-    几个参数的意义：
-    requestcode：请求标识号，在多线程并发时便于区分每个请求，让参数，url，请求结果与处理方法对应上。
-    showdialog：是否显示等待框。
-    dialogmsg：等待框内容。
-    几个抽象方法的意义（需要具体子类去实现）  
-   void netError(int requestcode); 网络未连接是的处理。
-   Map<String, String> getParmas(int requestcode)；请求的参数。
+
+HttpWork类封装了okhttp的，get和post操作的方法，可以说他是实际上的网络操作类，而BaseWebFrg只是个代理类，有涉及网络请求的fragment只需要继承BaseWebFrg，实现其中的抽象方法，以便于回调即可。这样在请求时一句代码便可搞定。 httptool.doPost(),或者httptool.doGet().或者其他请求。
+    
+几个参数的意义：
+requestcode：请求标识号，在多线程并发时便于区分每个请求，让参数，url，请求结果与处理方法对应上。
+showdialog：是否显示等待框。
+dialogmsg：等待框内容。
+几个抽象方法的意义（需要具体子类去实现）  
+void netError(int requestcode); 网络未连接是的处理。
+Map<String, String> getParmas(int requestcode)；请求的参数。
    String getUrlSuffix(int requestcode)；请求的出去固定部分，后面的Url。
    Class<?> getParserClass(int requestcode);返回结果要解析成的实体类。
    doSuccess(int requestcode, BaseBean bean, String data)；结果返回成功时的处理。
