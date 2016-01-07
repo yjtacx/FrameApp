@@ -18,7 +18,7 @@ import yjt.frameapp.utils.JSONUtil;
  * 网络请求操作工具类
  */
 public class HttpWork implements HttpInter{
-    private String HOSTURL = "http://101.200.1.101:8000/uecloud2/%s";
+    private String HOSTURL = "http://172.168.1.0:8000/ucloud/%s";
     public static final short DEFAULT_REQUEST_CODE = 0x01;
     private HttpInter class_=null;
 
@@ -265,8 +265,8 @@ public class HttpWork implements HttpInter{
         String url = String.format(HOSTURL, parturl);
         return url;
     }
-    public final void cancelRequest(){
-        OkHttpUtils.getInstance().cancelTag(class_);
+    public final void cancelRequest(HttpInter cls){
+        OkHttpUtils.getInstance().cancelTag(cls);
     }
 
     @Override

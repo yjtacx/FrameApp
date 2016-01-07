@@ -19,4 +19,5 @@ public class HttpUtil {
         NetworkInfo ni = cm.getActiveNetworkInfo();
         return ni != null && ni.isConnectedOrConnecting();
     }
+
 }

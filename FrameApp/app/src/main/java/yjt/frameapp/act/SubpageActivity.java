@@ -1,8 +1,10 @@
 package yjt.frameapp.act;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+
 import yjt.frameapp.R;
 import yjt.frameapp.config.Constants;
 import yjt.frameapp.enums.Sub;
@@ -12,17 +14,17 @@ import yjt.frameapp.utils.FragmentUtil;
  * Created by yujiangtao on 2016/1/6.
  * 二级Activity 除了主Acitivity和FirstActivity，其他的Fragment都用SubpageActivity来管理
  */
-public class SubpageActivity extends BaseActivity{
+public class SubpageActivity extends BaseActivity {
     @Override
     protected void initControl(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             Sub sub = (Sub) getIntent().getSerializableExtra("Sub");
             Fragment frg = Fragment.instantiate(this, sub.getClz().getName());
-            FragmentUtil.toFragmentPush(frgmanager,sub,getIntent().getExtras(),true,Constants.Animate_none);
+            FragmentUtil.toFragmentPush(frgmanager, sub, getIntent().getExtras(), true, Constants.Animate_none);
         } else {
             Sub sub = (Sub) savedInstanceState.getSerializable("Sub");
             Fragment frg = Fragment.instantiate(this, sub.getClz().getName());
-            FragmentUtil.toFragmentPush(frgmanager,sub,getIntent().getExtras(),true,Constants.Animate_none);
+            FragmentUtil.toFragmentPush(frgmanager, sub, getIntent().getExtras(), true, Constants.Animate_none);
         }
     }
 
@@ -40,6 +42,7 @@ public class SubpageActivity extends BaseActivity{
 //            ((DeviceDetailFrg) frgmanager.getCurrentFrg()).rightImageClick();
 //        }
     }
+
     @Override
     protected void titlebarrighttvclick() {
         // TODO Auto-generated method stub
@@ -49,6 +52,7 @@ public class SubpageActivity extends BaseActivity{
 //            ((PersonalInfoFrg) frgmanager.getCurrentFrg()).rightTextClick();
 //        }
     }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -58,10 +62,18 @@ public class SubpageActivity extends BaseActivity{
             e.printStackTrace();
         }
     }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         // TODO Auto-generated method stub
         super.onConfigurationChanged(newConfig);
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent == null) return;
+        setIntent(intent);
+        //其他处理
+    }
 }

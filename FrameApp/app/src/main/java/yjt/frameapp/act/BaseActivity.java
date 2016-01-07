@@ -19,6 +19,7 @@ import yjt.frameapp.managers.AppManager;
 import yjt.frameapp.managers.FrgManager;
 import yjt.frameapp.managers.SystemBarTintManager;
 import yjt.frameapp.utils.IntentUtil;
+import yjt.frameapp.view.titlebar.TitlebarCallback;
 
 /**
  * FragmentActivity基类，
@@ -26,7 +27,8 @@ import yjt.frameapp.utils.IntentUtil;
  * @author yujiangtao
  *
  */
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity implements
+		TitlebarCallback {
 
 	@Override
 	protected void onCreate(final Bundle bundle) {
@@ -103,6 +105,7 @@ public abstract class BaseActivity extends FragmentActivity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			leftimgclick(true);
 		} else if (KeyEvent.KEYCODE_HOME == keyCode) {
 			return super.onKeyDown(keyCode, event);
 		}
@@ -127,6 +130,30 @@ public abstract class BaseActivity extends FragmentActivity {
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		// TODO Auto-generated method stub
-		// 当 API Level > 11 调用这个方法可能导致奔溃（android.os.Build.VERSION.SDK_INT > 11）
+	}
+	@Override
+	public void leftimgclick(boolean b) {
+		// TODO Auto-generated method stub
+		titlebarleftimgclick();
+		if (b)
+			frgmanager.pop();
+	}
+
+	@Override
+	public void lefttvclick(boolean b) {
+		// TODO Auto-generated method stub
+		titlebarlefttvclick();
+		if (b)
+			frgmanager.pop();
+	}
+
+	@Override
+	public void rightimgclick(){
+		titlebarrifhtimgclick();
+	}
+
+	@Override
+	public void righttvclick(){
+		titlebarrighttvclick();
 	}
 }

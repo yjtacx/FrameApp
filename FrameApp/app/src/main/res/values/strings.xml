@@ -16,4 +16,5 @@
     <!-- 其他 -->
     <string name="sure">确定</string>
     <string name="cancle">取消</string>
+    <string name="back_exit_tips">再按一次返回键退出应用</string>
 </resources>
