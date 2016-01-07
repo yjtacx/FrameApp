@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/aphachgreen" android:state_pressed="true"></item>
+    <item android:drawable="@color/transparent"></item>
+
+</selector><!-- From: file:/D:/Energy_Housekeeper/housekeeper/res/drawable/selector_head_black_btn.xml -->

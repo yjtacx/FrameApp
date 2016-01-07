@@ -1,0 +1,11 @@
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+/build
+/app/bin
+/build/leakcanary/bin
+/build/okhttputils/bin
+

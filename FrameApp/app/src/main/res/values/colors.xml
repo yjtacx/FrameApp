@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <!-- 存储App需要用到的颜色 -->
+       <color name="white40">#40FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="dimgray">#696969</color>
+    <color name="red">#ff0000</color>
+    <color name="darkred">#890505</color>
+    <color name="crimson">#dc143c</color>
+    <color name="gold">#FFD700</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="orange">#FFA500</color>
+    <color name="lemonyellow">#FFFACD</color>
+    <color name="graywhite">#F5F5F5</color>
+    <color name="grayslate">#708090</color>
+    <color name="lightblue">#0083FF</color>
+    <color name="transparent">#00000000</color>
+    <color name="lightgray">#d3d3d3</color>
+    <color name="aphachgreen">#9039ADE4</color>
+    <color name="aphablack">#90000000</color>
+    
+    
+  <color name="title_bar_bg">#46BDB5</color> 
+    
+      <color name="title_color">#77D1B7</color>
+  <!--   <color name="lightgray">#E8E8E8</color> -->
+  <color name="color_gas">#FBBB40</color>
+  <color name="color_electric">#34AADC</color>
+  <color name="color_water">#75D3D7</color>
+  <color name="color_hot">#ED3F36</color>
+  <color name="main_bg_color">#EDEDED</color>
+  <color name="gray_light_less">#E3E0D5</color>
+    <color name="gray_lightmore">#EFEFF4</color>
+    <color name="gray_dark">#9EAAC0</color>
+  <color name="blue_2">#14B9D6</color>
+  <color name="gray_2">#EEEEEF</color>
+  
+  <!-- 二维码扫描 -->
+   <color name="result_view">#b0000000</color>
+      <color name="viewfinder_mask">#60000000</color>
+      <color name="possible_result_points">#c0ffff00</color>
+
+    <color name="blue_app">#46C0FB</color>
+
+    <color name="scene_home_bg">#32354E</color>
+    <color name="scene_home_pressed_bg">#32354F</color>
+
+    <!--ridiobutton的颜色变化-->
+    <color name="color_bg_selected">#9EAACD</color>
+    <color name="color_bg_normal">#EFEFF4</color>
+    <color name="color_text_selected">#ffffff</color>
+    <color name="color_text_normal">#555555</color>
+    <color name="color_type_gray">#EFEFF4</color>
+
+    <!--状态栏颜色-->
+     <color name="color_bar_home">#0290D3</color>
+    <color name="color_usercenter_home">#008ED0</color>
+
+    <!-- 底部pop颜色-->
+    <color name="pop_gray_nomal_menu">#90ffffff</color>
+    <color name="pop_gray_pressed_menu">#90d3d3d3</color>
+
+    <color name="main_blue_color">#3CA5E6</color>
+    <color name="title_blue_color">#1691DD</color>
+    <color name="titlebar_blue">#0074FF</color>
+    <!--switchbutton-->
+    <color name="on_text">#FFFFFF</color><!-- 开启时文字颜色 -->
+    <color name="off_text">#5B5B5B</color><!-- 关闭时文字颜色 -->
+    <color name="c0131208">#0083d0</color>
+
+</resources>

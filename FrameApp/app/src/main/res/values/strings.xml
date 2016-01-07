@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FrameApp</string>
+    <string name="title_main_usercenter">用户中心</string>
+    <string name="title_first_login">登录</string>
+    <string name="title_first_register">注册</string>
+    <string name="title_sub_systemset">系统设置</string>
+
+    <string name="name_not_empty">用户名不能为空</string>
+    <string name="pwd_not_empty">用户密码不能为空</string>
+
+    <string name="app_error">应用程序错误</string>
+    <string name="operate_fail">操作失败，请重试</string>
+    <string name="commit_fail">提交数据失败</string>
+    <string name="app_error_message">很抱歉，应用程序出现错误，即将退出。\n请提交错误报告，我们会尽快修复这个问题！</string>
+    <string name="submit_report">提交报告</string>
+    <!-- 其他 -->
+    <string name="sure">确定</string>
+    <string name="cancle">取消</string>
+</resources>
