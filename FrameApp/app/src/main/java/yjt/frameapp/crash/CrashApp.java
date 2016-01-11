@@ -1,5 +1,6 @@
 package yjt.frameapp.crash;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,8 +23,8 @@ public class CrashApp extends AbstractCrashReportHandler {
     }
 
     @Override
-    protected void sendReport(String title, String body, File file) {
-
+    protected void sendReport(String title, String body, File file,String exmsg) {
+        sendAppCrashReport(this.context,title+body+exmsg);
     }
     /**
      * 发送App异常崩溃报告
@@ -33,39 +34,46 @@ public class CrashApp extends AbstractCrashReportHandler {
      */
     public static void sendAppCrashReport(final Context context,
                                           final String crashReport) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setIcon(android.R.drawable.ic_dialog_info);
-        builder.setCancelable(false);
-        builder.setTitle(R.string.app_error);
-        builder.setMessage(R.string.app_error_message);
-//		builder.setMessage(crashReport);
-        builder.setPositiveButton(R.string.submit_report,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        // 发送异常报告
-                        Intent i = new Intent(Intent.ACTION_SEND);
-                        // i.setType("text/plain"); //模拟器
-                        i.setType("message/rfc822"); // 真机
-                        // 接收错误报告的邮箱地址
-                        i.putExtra(Intent.EXTRA_EMAIL,
-                                new String[] { "yjtacx@163.com" });
-                        i.putExtra(Intent.EXTRA_SUBJECT,
-                                "XXX,Android客户端 - 错误报告");
-                        i.putExtra(Intent.EXTRA_TEXT, crashReport);
-                        context.startActivity(Intent.createChooser(i, "发送错误报告"));
-                        // 退出
-                        AppManager.getAppManager().AppExit(context);
-                    }
-                });
-        builder.setNegativeButton(R.string.cancle,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        // 退出
-                        AppManager.getAppManager().AppExit(context);
-                    }
-                });
-        builder.show();
+        final Activity act = AppManager.getAppManager().currentActivity();
+        try {
+            if(act==null)return;
+            final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+            builder.setIcon(android.R.drawable.ic_dialog_info);
+            builder.setCancelable(false);
+            builder.setTitle(R.string.app_error);
+//            builder.setMessage(R.string.app_error_message);
+		builder.setMessage(crashReport);
+            builder.setPositiveButton(R.string.submit_report,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            // 发送异常报告
+                            Intent i = new Intent(Intent.ACTION_SEND);
+                            // i.setType("text/plain"); //模拟器
+                            i.setType("message/rfc822"); // 真机
+                            // 接收错误报告的邮箱地址
+                            i.putExtra(Intent.EXTRA_EMAIL,
+                                    new String[]{"yjtacx@163.com"});
+                            i.putExtra(Intent.EXTRA_SUBJECT,
+                                    "XXX,Android客户端 - 错误报告");
+                            i.putExtra(Intent.EXTRA_TEXT, crashReport);
+                            act.startActivity(Intent.createChooser(i, "发送错误报告"));
+                            // 退出
+                            AppManager.getAppManager().AppExit(act);
+                        }
+                    });
+            builder.setNegativeButton(R.string.cancle,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            // 退出
+                            AppManager.getAppManager().AppExit(act);
+                        }
+                    });
+            builder.show();
+        }catch (Exception e){
+            e.printStackTrace();
+            AppManager.getAppManager().AppExit(act);
+        }
     }
 }

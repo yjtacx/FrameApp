@@ -11,6 +11,7 @@ import java.util.HashMap;
  */
 public class Constants {
 
+	public static final boolean KeyDoubleExit=true;
 	public static final int Animate_left_right = 0;
 	public static final int Animate_bottom_up = 1;
 	public static final int Animate_apha_out = 2;

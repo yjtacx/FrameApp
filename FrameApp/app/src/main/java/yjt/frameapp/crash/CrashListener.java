@@ -11,5 +11,6 @@ public interface CrashListener {
      *
      * @param file
      */
-    public void afterSaveCrash(File file);
+    void afterSaveCrash(File file,String exmsg);
+
 }

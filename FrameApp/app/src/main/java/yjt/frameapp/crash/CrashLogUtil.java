@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class CrashLogUtil {
+
     private static final SimpleDateFormat timeFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS",
             Locale.getDefault());
 
@@ -39,18 +40,18 @@ public class CrashLogUtil {
                 fileWriter = new FileWriter(logFile, true);
                 bufdWriter = new BufferedWriter(fileWriter);
                 printWriter = new PrintWriter(fileWriter);
-                bufdWriter.append(time).append(" ").append("E").append('/').append(tag).append(" ")
+                bufdWriter.append(time).append(tag).append(" ")
                         .append(message).append('\n');
                 bufdWriter.flush();
                 tr.printStackTrace(printWriter);
                 printWriter.flush();
                 fileWriter.flush();
             } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
                 closeQuietly(fileWriter);
                 closeQuietly(bufdWriter);
                 closeQuietly(printWriter);
-            }finally {
-
             }
         }
     }

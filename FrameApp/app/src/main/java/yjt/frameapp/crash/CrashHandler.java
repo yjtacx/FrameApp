@@ -3,6 +3,10 @@ package yjt.frameapp.crash;
 /**
  * Created by yujiangtao on 2016/1/6.
  */
+import android.os.Looper;
+
+import com.elvishew.xlog.XLog;
+
 import java.io.File;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.concurrent.ExecutorService;
@@ -23,13 +27,15 @@ public class CrashHandler implements UncaughtExceptionHandler {
     }
 
     @Override
-    public void uncaughtException(Thread thread, Throwable ex) {
+    public void uncaughtException(Thread thread, final Throwable ex) {
         CrashLogUtil.writeLog(mLogFile, "CrashHandler", ex.getMessage(), ex);
         future = THREAD_POOL.submit(new Runnable() {
             public void run() {
+                Looper.prepare();
                 if (mListener != null) {
-                    mListener.afterSaveCrash(mLogFile);
+                    mListener.afterSaveCrash(mLogFile,ex.getMessage());
                 }
+                Looper.loop();
             };
         });
         if (!future.isDone()) {

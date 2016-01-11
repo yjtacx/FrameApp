@@ -9,6 +9,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+
+import com.elvishew.xlog.XLog;
+
 import java.util.HashMap;
 import java.util.Map;
 import yjt.frameapp.R;
@@ -160,6 +163,7 @@ public class LoginFrg extends BaseWebFrg implements OnClickListener {
             }
         }).start();
         namelogin_ = (EditText) findViewById(R.id.name_login);
+        XLog.e("namelogin", "namelogin");
         pwdlogin_ = (EditText) findViewById(R.id.pwd_login);
         namelogin_.setText(SharePrefUtil.getUserName());
         pwdlogin_.setText(SharePrefUtil.getUserPWD());

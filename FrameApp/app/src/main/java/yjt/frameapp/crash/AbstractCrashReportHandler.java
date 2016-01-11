@@ -3,12 +3,14 @@ package yjt.frameapp.crash;
 /**
  * Created by yujiangtao on 2016/1/6.
  */
-import java.io.File;
+
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+
+import java.io.File;
 
 import yjt.frameapp.MyApplication;
 
@@ -26,11 +28,11 @@ public abstract class AbstractCrashReportHandler implements CrashListener {
         return new File(MyApplication.instance.FILE_SAVEPATH+"log/", "crash.txt");
     }
 
-    protected abstract void sendReport(String title, String body, File file);
+    protected abstract void sendReport(String title, String body, File file,String exmsg);
 
     @Override
-    public void afterSaveCrash(File file) {
-        sendReport(buildTitle(mContext), buildBody(mContext), file);
+    public void afterSaveCrash(File file,String exmsg) {
+        sendReport(buildTitle(mContext), buildBody(mContext), file,exmsg);
     }
 
     public String buildTitle(Context context) {
@@ -41,7 +43,6 @@ public abstract class AbstractCrashReportHandler implements CrashListener {
     public String buildBody(Context context) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("APPLICATION INFORMATION").append('\n');
         PackageManager pm = context.getPackageManager();
         ApplicationInfo ai = context.getApplicationInfo();
         sb.append("Application : ").append(pm.getApplicationLabel(ai)).append('\n');
@@ -71,7 +72,6 @@ public abstract class AbstractCrashReportHandler implements CrashListener {
         sb.append("TAGS: ").append(Build.TAGS).append('\n');
         sb.append("TYPE: ").append(Build.TYPE).append('\n');
         sb.append("USER: ").append(Build.USER).append('\n');
-
         return sb.toString();
     }
 }

@@ -1,11 +1,7 @@
 .gradle
 /local.properties
-/.idea
+/.idea/workspace.xml
+/.idea/libraries
 .DS_Store
 /build
 /captures
-/build
-/app/bin
-/build/leakcanary/bin
-/build/okhttputils/bin
-

@@ -37,7 +37,7 @@ public abstract class BaseWebFrg extends BaseFrg implements HttpInter {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        httptool.cancelRequest();
+        httptool.cancelRequest(this);
     }
 
 }

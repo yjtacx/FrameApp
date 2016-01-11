@@ -6,8 +6,8 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import yjt.frameapp.R;
+import yjt.frameapp.config.Constants;
 import yjt.frameapp.tools.DoubleClickExitHelper;
-import yjt.frameapp.utils.SharePrefUtil;
 import yjt.frameapp.view.titlebar.TitleBarView;
 
 /**
@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             // 是否退出应用
-            if (SharePrefUtil.getKeyDoubleExit()) {
+            if (Constants.KeyDoubleExit) {
                 return mDoubleClickExitHelper.onKeyDown(keyCode, event);
             }
         }

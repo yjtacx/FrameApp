@@ -1,12 +1,13 @@
 package yjt.frameapp.enums;
 
 import yjt.frameapp.R;
+import yjt.frameapp.frg.MainFrg;
 
 /**
  * Created by yujiangtao on 2016/1/5.
  */
 public enum  Main implements BaseEnum{
-    USERCENTER(0, R.string.title_main_usercenter, UserCenterFrg.class);
+    MAINFRG(0, R.string.title_main_usercenter, MainFrg.class);
 
     private int idx;
     private int resName;
